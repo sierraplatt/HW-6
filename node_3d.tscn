@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://chtr1i6whgdxm"]
+
+[ext_resource type="PackedScene" uid="uid://d3emdo7c8fdcp" path="res://banana_smoothie/scene.gltf" id="1_42kuq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q5jqb"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yueb0"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.828627, -0.559801, 0, 0.559801, 0.828627, -0.00150901, -0.00641298, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.982911, 0.0865522, 0.162467, -0.121036, 0.968836, 0.216119, -0.138699, -0.23209, 0.962755, 9.38663, 124.68, 186.132)
+fov = 50.625
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.756344, -0.09328, -0.64749, 0.590609, -0.328235, 0.737186, -0.281293, -0.939979, -0.193166, -4.31257, 140.048, 47.6569)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1359.4, -0.241734, -0.240137, -2.80089, 59.9771, -123, 3.82212, -42.0246, -175.543, 66.8046, -69.4131, -64.4553)
+mesh = SubResource("PlaneMesh_q5jqb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_yueb0")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_42kuq")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0.00150901, -2.21174, 0.287385)
